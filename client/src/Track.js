@@ -125,14 +125,14 @@ function Track() {
     if (loader) return <div><h1 className="wait">Loading...</h1></div>;
 
     if (TrackTillSold || TrackTillRetail || TrackTillDistribution || TrackTillManufacture || TrackTillRMS || TrackTillOrdered) {
-        const batteryData = {
+        const medicineData = {
             id: MED[ID]?.id,
             name: MED[ID]?.name,
             description: MED[ID]?.description,
             currentStage: MedStage[ID],
         };
 
-        const batteryDataString = JSON.stringify(batteryData);
+        const medicineDataString = JSON.stringify(medicineData);
 
         return (
             <div className="container-xl">
@@ -146,7 +146,7 @@ function Track() {
                 <hr />
                 <br />
                 <h5>Medicine Tracking:</h5>
-                <QRCodeCanvas value={batteryDataString} />
+                <QRCodeCanvas value={medicineDataString} />
                 <button onClick={handleTrackAnother} className="btn btn-outline-success btn-sm">Track Another Item</button>
                 <span onClick={() => history.push('/')} className="btn btn-outline-danger btn-sm"> HOME</span>
             </div>
@@ -159,7 +159,7 @@ function Track() {
             <span onClick={() => history.push('/')} className="btn btn-outline-danger btn-sm"> HOME</span>
             <h5>Enter Medicine ID to Track it</h5>
             <form onSubmit={handleTrack}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Battery ID" required />
+                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter medicine ID" required />
                 <button className="btn btn-outline-success btn-sm" type="submit">Track</button>
             </form>
             <table className="table table-sm table-bordered">

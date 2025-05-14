@@ -94,6 +94,7 @@ contract SupplyChain {
             return "Retail Stage";
         else if (MedicineStock[_medicineID].stage == STAGE.sold)
             return "Medicine Sold";
+        revert("Invalid stage");
     }
 
     //To store information about raw material supplier
@@ -301,5 +302,8 @@ contract SupplyChain {
 
         emit MedicineAdded(msg.sender, medicineCtr, _name, "Medicine Added to Stock");
         emit LogStageChange(msg.sender, medicineCtr, "Added", "Medicine Added to Stock");
+    }
+    function getOwner() public view returns(address){
+        return Owner;
     }
 }

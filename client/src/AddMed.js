@@ -70,10 +70,10 @@ function AddMed() {
             if (receipt) {
                 loadBlockchaindata(); // Refresh after success
             }
-        } catch (err) {
-            console.error("Error submitting medicine:", err);
+        }catch (err) {
+            console.error("Error submitting medicine:", JSON.stringify(err, null, 2));
             alert("An error occurred:\n" + (err?.message || "Unknown error"));
-        }
+        }        
     };
 
     if (loader) {
